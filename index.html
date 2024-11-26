@@ -11,20 +11,87 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		
+
 			<link rel="stylesheet" href="assets/css/main.css" />
 			<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	
 			<style>
-			#bg:after {
+							/* #bg {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				z-index: -1; /* Pushes the video behind all content */
+				/* background: url('BackgroundPng.png') no-repeat center center/cover;
 
-				background-image: url("WhatsApp Image 2024-10-06 at 4.00.27 PM.jpeg");
-				background-size: cover;
-				background-position: center;
-				background-repeat: no-repeat;
+				} */
+
+				/* #bg video {
+								
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 100%;
+				height: 100%; */
+				/* object-fit: cover; /* Adjusts the video to fill the container while maintaining its aspect ratio */
+				/* object-position: center; /* Ensures the center of the video is prioritized */
+			    /* filter: blur(0px); Adjust blur as needed */ 
+
+				/* } */
+			.polaroid {
+				background: rgb(61, 58, 58);
+				padding: 15px 15px 45px 15px;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+				transform: rotate(3deg);
+				transition: transform 0.3s ease;
+				width: 300px;
+				position: relative;
+			}
+
+			.polaroid:hover {
+				transform: rotate(0deg) scale(1.02);
+			}
+
+			.polaroid img {
+				width: 100%;
+				height: 350px;
+				object-fit: cover;
+				display: block;
+			}
+
+			.polaroid-caption {
+				text-align: center;
+				margin-top: 15px;
+				font-family: 'Permanent Marker', cursive;
+				color: #dfdfdf;
+				font-size: 1.2em;
+			}
+
+			/* Add subtle film grain texture */
+			.polaroid::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVfJ92AAAACHRSTlMzMzMzMzMzM85JBgUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAwSURBVDjLY2AYBaNg8AJGYQEmGMMMQxjEoIJxDGpQwQSGJKhgMkMZVDCNYcCoAAC/9AkG1qHDBAAAAABJRU5ErkJggg==');
+				opacity: 0.03;
+				pointer-events: none;
 			}
 		</style>
 	</head>
 	<body class="is-preload">
+		<!-- <div id="bg">
+			<video autoplay muted loop playsinline>
+			  <source src="179908-862981818.mp4" type="video/mp4" />
+			  <-- Fallback Background Image -->
+			  <!-- <img src="BackgroundPng.PNG" alt="Fallback Background" />
+			</video>
+		  </div> -->
 		<style>
 			/* Hide scrollbars for all elements */
 			* {
@@ -42,28 +109,43 @@
 				overflow: auto;
 			}
 		</style>
+		
 		<!-- Wrapper -->
 			<div id="wrapper">
+				
 
 				<!-- Header -->
 					<header id="header">
 						<div class="logo">
-							<span class="icon fa-chart-bar"></span>
+							<img src="Headshot.jpeg" alt=""/>
 						</div>
+
 						<div class="content">
 							<div class="inner">
-								<h1>Utkarsh Singh</h1>
-								<p>Software Engineer | Engineering Solutions | Exploring AI
+								<h1 style="color: #ffffff; font-family: 'Helvetica', sans-serif;" >Hey, I'm Utkarsh 👋</h1>
+								<p>												I enjoy building stuff that makes people's lives better.
 								</p>
-								<p>Designing with Purpose, Engineering with Precision</p>
+								<p style="color:#ffffffb0">
+									<a href="https://github.com/utkarshsingh34/"style="margin-right: 20px;">
+										<i class="fab fa-github fa-2x"></i> <span style="vertical-align: super;"></span>
+									</a>
+		
+									<a href="https://www.linkedin.com/in/utkarsh-singh34" style="margin-right: 20px;">
+										<i class="fab fa-linkedin fa-2x"></i> <span style="vertical-align: super;"></span>
+									</a>
 								
+									<!-- <a href="https://x.com/utkarshsingh_34">
+										<i class="fab fa-twitter fa-2x"></i> 
+									</a> -->
+								</p>
 							</div>
 						</div>
 						<nav>
 							<ul>
 								<li><a href="#about">About</a></li>
-								<li><a href="#experience">Experience</a></li>
+								<li><a href="#work">Work</a></li>
 								<li><a href="#projects">Projects</a></li>
+								<li><a href="#contact">Contact</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
@@ -74,163 +156,260 @@
 
 						<!-- About -->
 							<article id="about">
-								<h2 class="major">About</h2>
-								<div style="display: flex; flex-direction: column; gap: 20px;">
-									<div style="display: flex; align-items: flex-start;">
-										<span class="image main" style="flex: 0 0 40%; margin-right: 20px;">
-											<img src="WhatsApp Image 2024-10-04 at 4.22.05 PM.jpeg" alt="" style="width: 100%; height: auto;" />
-										</span>
-										<div style="flex: 1;">
-											<p>
-												☀️ <strong>work</strong><br>
-												I see technology not just as a tool, but as a bridge to connect people, ideas, and possibilities. My work revolves around creating impactful solutions that bring value and meaning to people's lives. I'm not drawn to the routine of just doing what's expected. I'm excited by the possibility of creating something innovative, scalable, and, most importantly, meaningful. I thrive in environments where I can experiment, learn, and push boundaries. I'm here to build cool things, collaborate with great minds, and contribute to projects that make a difference.
-											</p>
-										</div>
-									</div>
-									
+								<h2 class="major" style="letter-spacing:5px;">About Me</h2>
+									<!-- <p>
+										This section contains a curated collection of my philosophies, hobbies and photos. If anything resonates with you, I want to know. Reach me here.
+									</p> -->
+								<div class="tldr">
+									<h3>TL;DR</h3>
+									<ul >
+										<li><span class="emoji">🛍️</span>Aspiring Software Engineer interested in AI/ML (Check out my <a href="#projects" style="margin-right: 0px;">projects!</a>)  </li>
+										<li><span class="emoji">🌟</span>Web Developer at <a href="https://sail.cs.illinois.edu/">CS SAIL</a> & Prev SWE Fellow at <a href="https://headstarter.co/">Headstarter AI</a> </li>
+										<li><span class="emoji">🎓</span>Transferring to B.S. in Mathematics and Computer Science at <a href="https://siebelschool.illinois.edu/academics/undergraduate/degree-program-options/bs-mathematics-computer-science">UIUC</a><img src="uiuclogo.png" alt="UIUC Logo" 
+											style="height: 1em; 
+												   width: auto; 
+												   display: inline-block; 
+												   vertical-align: middle; 
+												   margin-left: 0.2em;
+												   margin-right: 0.2em;"></li>
+												   <li>
+													<span class="emoji">🌌</span> Fascinated by physics, stargazing, and pondering the universe
+												</li>	
+										<li><span class="emoji">☕️</span>I love coffee, chess, philosophy, history, reading and basketball </li>
+										
+									</ul>
+								</div>
+
+								<!-- What I Think Section -->
+
+								<!-- <div class="tldr">
+									<h3>TL;DR</h3>
+								</div> -->
 									<div style="display: flex; align-items: flex-start;">
 										<div style="flex: 1; margin-right: 20px;">
+											
 											<p>
-												🌱 <strong>life</strong><br>
-												I’m more than just code and algorithms. I find joy in exploring different aspects of life, whether it’s engaging in deep conversations, going down random rabbitholes, or simply enjoying a cup of coffee. My upbringing in Mumbai centered around the key values- curiosity, hardwork, empathy, and resilience. For me, life is about learning from every experience, staying disciplined, and embracing the unpredictable journey ahead.
+												☀️ <strong>work</strong><br>
+													I see technology not just as a tool, but as a bridge to connect people, ideas, and possibilities. My work revolves around creating impactful solutions that bring value and meaning to people's lives. I'm not drawn to the routine of just doing what's expected. I'm excited by the possibility of creating something innovative, scalable, and, most importantly, meaningful. I thrive in environments where I can experiment, learn, and push boundaries. I'm here to build cool things, collaborate with great minds, and contribute to projects that make a difference.
 											</p>
 										</div>
-										<span class="image main" style="flex: 0 0 40%;">
-											<img src="Utkarsh_Sirius.jpeg" alt="" style="width: 100%; height: auto;" />
+										<span class="polaroid" style="flex: 0 0 40%;">
+											<img src="WhatsApp Image 2024-10-04 at 4.22.05 PM.jpeg" alt="" style="width: 100%; height: auto;" />
+												<div class="polaroid-caption">Chicago, 2024</div>
+											
 										</span>
 									</div>
+
+									<div style="display: flex; flex-direction: column; gap: 20px;">
+										<div style="display: flex; align-items: flex-start;">
+											<!-- <span class="polaroid" style="flex: 0 0 40%; margin-right: 20px;">
+												<img src="Utkarsh_Sirius.jpeg" alt="" style="width: 100%; height: auto;" />
+											<div class="polaroid-caption">Chicago, 2024</div>
+											</span> -->
+											<div style="flex: 1;">
+												<p>
+													🌱 <strong>life</strong><br>
+												I’m more than just code and algorithms. I find joy in exploring different aspects of life, whether it’s engaging in deep conversations, going down random rabbitholes, or simply enjoying a cup of coffee. My upbringing in Mumbai centered around the key values- curiosity, hardwork, empathy, and resilience. For me, life is about learning from every experience, staying disciplined, and embracing the unpredictable journey ahead.
+												</p>
+											</div>
+										</div>
 									
 									<div style="display: flex; align-items: flex-start;">
-										<span class="image main" style="flex: 0 0 40%; margin-right: 20px;">
+										<!-- <span class="polaroid" style="flex: 0 0 40%; margin-right: 20px;">
 											<img src="WhatsApp Image 2024-10-04 at 6.16.49 PM.jpeg" alt="" style="width: 100%; height: auto;" />
-										</span>
+											<div class="polaroid-caption">Chicago, 2024</div>
+										</span> -->
 										<div style="flex: 1;">
 											<p>
 												⚖️ <strong>balance</strong><br> 
-												Balancing ambition with mindfulness is key. I believe in the importance of pausing, reflecting, and recharging. While I’m driven by goals and challenges, I recognize the value of taking a step back to gain perspective and recalibrate.For me, true success goes beyond professional milestones—it’s about thriving in every aspect of life and spending time with loved ones.
+												Balancing ambition with mindfulness is key. I believe in the importance of pausing, reflecting, and recharging. While I’m driven by goals and challenges, I recognize the value of taking a step back to gain perspective and recalibrate. For me, true success goes beyond professional milestones—it’s about thriving in every aspect of life and spending time with loved ones.
 											</p>
 
 										</div>
-									</div>
-									
+									</div>	
 								</div>
+
+								<!-- Hobbies Section -->
+								<!-- <div class="tldr">
+									<h3>TL;DR</h3>
+									<ul>
+										<li><span class="emoji">♟️</span> Playing chess and immersing myself in strategic challenges</li>
+										<li><span class="emoji">🏀</span> Watching and playing basketball</li>
+										<li><span class="emoji">🪐</span> Stargazing and exploring the night sky</li>
+										<li><span class="emoji">📖</span> Reading philosophy and physics books</li>
+										<li><span class="emoji">🌟</span> Writing and researching random topics</li>
+									</ul>
+								</div> -->
+							
+								<!-- Photo Section -->
+								<!-- <div class="tldr">
+									<h3>TL;DR</h3>
+									</div>
+								<div class="photo-grid">
+									<img src="crab nebula.jpg" alt="Exploring Chicago" />
+									<img src="BeautifulPhoto.jpeg" alt="Stargazing moments" />
+									<img src="BackgroundPng.PNG" alt="Chess game" />
+								</div>
+							-->
 							</article>
 
 						<!-- Experience -->
-							<article id="experience">
+							<article id="work">
+
 								<h2 class="major">Experience</h2>
 								<ul>
-									<li>
-										<h3>Department of Computer Science, The Grainger College of Engineering</h3>
-										<p>Software Engineering Tutor | August 2024 - Present</p>
-										<ul>
-											<li>Mentoring 500+ students in Java, debugging homework code, explaining concepts, and hosting office hours</li>
-											<li>Designing and debugging 4+ Machine Projects that utilize Java libraries for Android app development
-											</li>
+									
+									<h3 style="color: #ffffff; font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em;">Lead Software Engineer</h3>
+													<p style="color: #ffffffaf; margin: 0 0 0.5em 0;">Subliva | Sep 2024 - Nov 2024</p>
+													<p style="color: white; line-height: 1.6; margin-bottom: 0.5;">Leading web development efforts as the core developer on a cross-functional team to develop the MVP for their subleasing platform (C2C).</p>
 
-										</ul>
-									</li>
-									<li>
-										<h3>Headstarter AI</h3>
-										<p>Software Engineering Fellow | July 2024 - September 2024</p>
-										<ul>
-											<li>Created and deployed 4+ AI-driven projects with a focus on performance optimization and scalability</li>
-												<li>Built an AI-powered app using OpenAI, Stripe, and Firebase to integrate flashcard generation and paywalls</li>
-												<li>Built a customer support AI chatbot using OpenAI API and Next.js for real-time user interactions</li>
-												<li>Built an Inventory Management System using React, Node.js, and Firebase for efficient stock tracking</li>
-												<li>Participated in 5+ hackathons, creating projects and leading a team of engineers under tight deadlines
-												</li>
-										</ul>
-									</li>
-								
-									<hr style="margin: 40px 0;">
+													<hr style="margin: 10px 0;">
 
-									<h2 class="major">Education</h2>
-									<div style="display: flex; flex-direction: column; gap: 20px;">
-										<h3>University of Illinois @ Urbana-Champaign</h3>
-										<div style="display: flex; align-items: flex-start; gap: 20px;">
-											<img src="DHNkdRfXoAEp2VD.0.jpg" alt="UIUC Logo" style="width: 100px; height: 100px;">
-											<div>
-												<n><strong>Degree:</strong> B.S. in Mathematics & Computer Science (Intended)</n>
-												<p><strong>Expected Graduation:</strong> May 2026</p>
-												<n><strong>GPA:</strong> 4.0/4.0 | Dean's List | James Scholar Honors</n>
-											</div>
-										</div>
-									</div>
+													<h3 style="color: #ffffff; font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em;">Software Engineer</h3>
+													<p style="color: #ffffffaf; margin: 0 0 0.5em 0;">Project Code | Aug 2024 - Present</p>
+													<p style="color: #ffffff; line-height: 1.6; margin-bottom: 0.5;">Leading development of the MUSIQA website, developing a refereshing algorithm for users bored of Spotify's recommendations.</p>
 
-									<li><a href = "https://docs.google.com/document/d/1m7SHoZZ2rJntdiiqd5uj8rWoEkwTjLnF/edit?usp=sharing&ouid=105373436401920685269&rtpof=true&sd=true" target="_blank" style="text-decoration: none; color: #00aaff;">Link to Resume</a></li>
+													<hr style="margin: 10px 0;">
+
+													<h3 style="color: #ffffff; font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em;">Web Developer</h3>
+													<p style="color: #ffffffaf; margin: 0 0 0.5em 0;">CS SAIL | Aug 2024 - Present</p>
+													<p style="color: #ffffff; line-height: 1.6; margin-bottom: 0.5;">Working with the SAIL team to develop the CS SAIL 2025 website, creating a platform capable of hosting 1000+ concurrent users.</p>
+
+													<hr style="margin: 10px 0;">
+
+													<h3 style="color: #ffffff; font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em;">Software Engineer Fellow</h3>
+													<p style="color: #ffffffaf; margin: 0 0 0.5em 0;">Headstarter AI | Jul 2024 - Sep 2024</p>
+													<p style="color: #ffffff; line-height: 1.6; margin-bottom: 0.5;">Developed 4+ AI-powered applications in a 12-week immersive program, learning best practices in software engineering.
+													</p>
+					
+																			
+										
+																			
 								</ul>
+								<h2 class="major">Education</h2>
+								<div style="display: flex; flex-direction: column; gap: 20px;">
+									<h3 style="color: #ffffff; font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em;">University of Illinois, Urbana-Champaign</h3>
+									<div style="display: flex; align-items: flex-start; gap: 20px;">
+										<img src="DHNkdRfXoAEp2VD.0.jpg" alt="UIUC Logo" style="width: 100px; height: 100px;">
+										<div>
+											<p style="color: #ffffffaf; margin: 0 0 0.5em 0;">B.S. Astronomy + Data Science | Aug 2023 - Dec 2026</p>
+											<n>GPA: 4.0/4.0 | Dean's List | James Scholar Honors</n>
+											<hr style="margin: 5px 0;">
+
+											<p>RSOs: Project code, CS Sail, buildillinois, UIAS, SEA, Chess Club, Track and Field Club </p>
+										</div>
+										
+									</div>
+								</div>
+								<form method="GET" action="https://docs.google.com/document/d/1m7SHoZZ2rJntdiiqd5uj8rWoEkwTjLnF/edit?usp=sharing&ouid=105373436401920685269&rtpof=true&sd=true">
+									<input type="submit" value="View Full Resumé">
+									</form>	
 							</article>
 
 						<!-- Projects -->
-							<article id="projects">
-								<h2 class="major">Projects</h2>
+							<!-- Projects -->
+<article id="projects">
+	<h2 class="major">Current Projects</h2>
+  
+	  <!-- AI Evidence Auditor Project -->
+	<div class="project-card">
+		<h3 class="project-title">
+		  AI Evidence Auditor
+		</h3>
+		<p class="project-tech-stack"><em>Python, TensorFlow, Tesseract, OpenCV, Hugging Face, Azure</em></p>
+		<p class="project-description">
+		  First time working with an industry dev team. The goal of this project is to develop a CPU-optimized, cost efficient end-to-end AI solution to automate manual auditing of cloud configuration
+		  compliance.
+		</p>
+		<ul class="project-highlights">
+		  <li>Learning through building. Training a CNN model on a loaded dataset using keras to classify images as relatable or unrelatable for an initial validation check.</li>
+		  <li>Images classified as relatable are preprocessed by converting to grayscale and applying thresholding to enhance text visibility. Performing Optical Character Recognition (OCR) on pre-processed images using Tesseract for text extraction.</li>
+			<li>Researching and learning to apply Natural Language Processing via DistilledBERT from the Hugging Face library to automatically audit extracted text from
+			the previous step.</li>
+		<li>Utilizing Redis to cache calls to Azure and AWS policy configuration APIs for real-time compliance checks.</li>
+		</ul>
+		<form method="GET" action="https://colab.research.google.com/drive/1JPbaGGLmXVSEGiBFwG4CZeLBwO-2Y7AI?usp=sharing">
+			<input type="submit" value="View Code Sample">
+			</form>
+	  </div>
 
-								<ul>
-									<li>
-									  <h3><a href="https://music-recommendation-eight.vercel.app/" target="_blank" style="text-decoration: none; color: #00aaff;">MUSIQA</a> | PROJECT CODE @ UIUC</h3>
-	
-									  <p>
-										<strong>Description:</strong> Developed a music recommendation algorithm using the Spotify API, NumPy, pandas, and Scikit-learn. The platform splits songs into 15 vector components to provide accurate, personalized recommendations and integrates Spotify for real-time data synchronization and user account management.
-									  </p>
-									  <p>
-										<strong>Technologies Used:</strong> React, Node.js, Spotify API, NumPy, Scikit-learn, Vercel
-									  </p>
-									  <p>
-										<strong>Outcomes:</strong> Successfully deployed the platform, enhancing user engagement and providing a seamless experience for song recommendations.
-									  </p>
-									</li>
-									<li>
-									  <h3><a href="https://github.com/utkarshsingh34/AI-Chatbot" target="_blank" style="text-decoration: none; color: #00aaff;">Realtime AI Chatbot</a> | HEADSTARTER AI</h3>
-									  <p>
-										<strong>Description:</strong> Developed a context-aware AI chatbot using React and OpenAI’s GPT model, with dynamic chat functionalities and improved backend processes. Focused on optimizing response times and handling communication errors gracefully.
-									  </p>
-									  <p>
-										<strong>Technologies Used:</strong> React, Next.js, Firebase, OpenAI API
-									  </p>
-									  <p>
-										<strong>Outcomes:</strong> Achieved a 30% increase in user satisfaction and a 20% reduction in response times.
-									  </p>
-									  
-									</li>
-									<li>
-									  <h3><a href="https://github.com/utkarshsingh34/Inventory" target="_blank" style="text-decoration: none; color: #00aaff;">Inventory Management System</a> | HEADSTARTER AI</h3>
-									  <p>
-										<strong>Description:</strong> Developed a real-time inventory management platform capable of handling thousands of products with accurate data synchronization. Implemented dynamic add/remove inventory features and a filterable search system to streamline stock tracking.
-									  </p>
-									  <p>
-										<strong>Technologies Used:</strong> React, Node.js, Firebase
-									  </p>
-									  <p>
-										<strong>Outcomes:</strong> Reduced inventory tracking time by 40% and minimized risk of overstocking or understocking.
-									  </p>
-									</li>
-									<li>
-										<h3>AI-Powered Flashcards | HEADSTARTER AI</h3>
-										<p>
-										  <strong>Description:</strong> Built an AI-powered flashcard application with secure user authentication and a subscription-based payment model using Clerk and Stripe. Integrated dynamic flashcard generation through OpenAI and real-time updates with Next.js and Firebase.
-										</p>
-										<p>
-										  <strong>Technologies Used:</strong> Next.js, React, Firebase, Stripe, Clerk, OpenAI API
-										</p>
-										<p>
-										  <strong>Outcomes:</strong> Deployed the application successfully, providing smooth user experiences and secure data storage for personalized learning.
-										</p>
-									  </li>
-									  <li>
-									  <h3>Interactive Vending Machine | TECH CLUB</h3>
-									  <p>
-										<strong>Description:</strong> Led the design and creation of an interactive vending machine using the Arduino platform. Integrated hardware components and developed software to control the vending machine's operations efficiently.
-									  </p>
-									  <p>
-										<strong>Technologies Used:</strong> Arduino Development Environment
-									  </p>
-									</li>
-									<li><a href="https://github.com/utkarshsingh34" target="_blank" style="text-decoration: none; color: #00aaff;">Link to GitHub</a></li>
-								  </ul>
-								</article>
+	  	<!-- MUSIQA Project
+	<div class="project-card">
+		<h3 class="project-title">
+		  <a href="https://music-recommendation-eight.vercel.app/" target="_blank">MUSIQA | Music Recommendation</a>
+		</h3>
+		<p class="project-tech-stack"><em>React, Node.js, Spotify API, NumPy, Scikit-learn, Vercel</em></p>
+		<p class="project-description">
+		  Designed and implemented a vector-based music recommendation system leveraging the LastFM Database to retrieve song metadata and recommend based on cosine similarity, with advanced NLP analysis on lyrics using IBM Watson for relevancy.
+		</p>
+		<ul class="project-highlights">
+		  <li>Engineered a KD-Tree algorithm to optimize nearest-neighbor search, reducing retrieval time to under 5 seconds.</li>
+		  <li>Integrated OAuth 2.0 authentication with Spotify for secure logins and seamless playlist management.</li>
+		</ul>
+		<form method="GET" action="https://colab.research.google.com/drive/1JPbaGGLmXVSEGiBFwG4CZeLBwO-2Y7AI?usp=sharing">
+			<input type="submit" value="View Github">
+			</form>
 
-						<!-- Involvement -->
+	  </div> -->
+
+	<h2 class="major">Past Projects</h2>
+  
+	<!-- Realtime AI Chatbot -->
+	<div class="project-card">
+	  <h3 class="project-title">
+		<a href="https://github.com/utkarshsingh34/AI-Chatbot" target="_blank">Realtime AI Chatbot</a>
+	  </h3>
+	  <p class="project-tech-stack"><em>React, Next.js, Axios, Firebase, OpenAI API</em></p>
+	  <p class="project-description">
+		Developed a context-aware AI chatbot using React and OpenAI’s GPT model with dynamic chat functionalities and fast response times. Gained familiarity with using RESTful APIs and axios for endpoint communication and error handling.
+	  </p>
+	  <form method="GET" action="https://github.com/utkarshsingh34/AI-Chatbot">
+		<input type="submit" value="View Github Repository">
+		</form>
+	</div>
+
+	<div class="project-card">
+		<h3 class="project-title">
+		  <a href="https://github.com/utkarshsingh34/NBA-EDA" target="_blank">Exploratory Analysis on NBA Data</a>
+		</h3>
+		<p class="project-tech-stack"><em>Pandas, Scikit-learn, Seaborn</em></p>
+		<p class="project-description">
+		  Analyzed the evolution of the NBA over the last two decades through player performance trends, highlighting a shift towards a dynamic and fast-paced game in recent years, influenced significantly by the prominence of three-pointers in today's basketball. Got comfortable using pandas, matplotlib and seaborn for data analysis.
+		</p>
+		<form method="GET" action="https://github.com/utkarshsingh34/NBA-EDA">
+		  <input type="submit" value="View Github Repository">
+		  </form>
+	  </div>
+
+	<div class="project-card">
+		<h3 class="project-title">
+		  <a href="https://github.com/utkarshsingh34/Inventory" target="_blank">Inventory Management System</a>
+		</h3>
+		<p class="project-tech-stack"><em>React, Next.js, Firebase, Vercel</em></p>
+		<p class="project-description">
+		  First ever Independant project. Developed a simple inventory management system to get my hands dirty with web development.
+		</p>
+		<form method="GET" action="https://github.com/utkarshsingh34/Inventory">
+		  <input type="submit" value="View Github Repository">
+		  </form>
+	  </div>
+
+	  <div class="project-card">
+		<h3 class="project-title">
+		  Interactive Vending Machine
+		</h3>
+		<p class="project-tech-stack"><em>Arduino, C++, Blender, 3D Printing, Figma</em></p>
+		<p class="project-description">
+		  Collaborated with my high school tech team to build a soda vending machine using arduinos. Gained familiarity with tools like Blender and Figma and 3D printed the final design.
+		</p>
+	  </div>
+
+
+
+  </article>
+  
+
+						<!-- Involvement
 						<article id="involvement">
 							<h2 class="major">Involvement</h2>
 							<p class="fade-in">
@@ -238,42 +417,73 @@
 								I believe true growth comes from stepping beyond our comfort zones and connecting with diverse communities. Involvement isn’t just about gaining experience but about fostering meaningful connections, creating a positive impact, and expanding perspectives. Each organization I’ve contributed to has shaped my journey, leaving me with new questions and a greater drive to keep learning.
 							  </p>
 							
-							  <!-- CS SAIL -->
+							 CS SAIL
 							  <div>
 								<h3>💻 CS SAIL | Web Developer & Designer</h3>
 								<p class="fade-in">Working with CS SAIL has been about more than just coding—it’s about creating opportunities for students to discover their passion for computer science. What excites me most is the potential to spark curiosity and inspire future tech enthusiasts. How can we build a platform that not only educates but also empowers students to pursue their interests fearlessly?</p>
 							  </div>
 							
-							  <!-- Tutoring -->
+							  Tutoring
 							  <div>
 								<h3>📚 Tutoring | Empowering Future Coders</h3>
 								<p class="fade-in">Tutoring has been a deeply rewarding experience that taught me the power of patience and encouragement. Seeing a student’s confidence grow as they grasp a new concept fuels my passion for teaching. I often ask myself: What more can I do to make complex topics feel approachable and inspire a lifelong love of learning?</p>
 							  </div>
 							
-							  <!-- Hamari Sillai -->
+							  Hamari Sillai
 							  <div>
 								<h3>🌍 Hamari Sillai | Volunteer & Marketing Support</h3>
 								<p class="fade-in">Being involved with Hamari Sillai has shown me the resilience and creativity of women striving for economic independence. What I found most inspiring is how technology can amplify their efforts and stories. How can we continue to leverage tech to create sustainable income streams for marginalized communities?</p>
 							  </div>
 							
-							  <!-- Seva Trust Foundation -->
-							  <div>
+							 Seva Trust Foundation -->
+							  <!-- <div>
 								<h3>🏞️ **Seva Trust Foundation** | Volunteer & Documentary Assistant</h3>
 								<p class="fade-in">Documenting the stories of tribal communities at Seva Trust Foundation was eye-opening. It wasn’t just about raising awareness but also about learning to listen deeply and tell authentic stories. What is the best way to ensure these voices are heard and their stories resonate with broader audiences?</p>
 							  </div>
 							
-							  <!-- Yasham Foundation -->
-							  <div>
+							  Yasham Foundation -->
+							  <!-- <div>
 								<h3>🏫 **Yasham Foundation** | Tutor & Workshop Organizer</h3>
 								<p class="fade-in">Tutoring at Yasham Foundation has been a reminder of the transformative power of education. Each workshop left me wondering: How can I better tailor my teaching methods to not just educate but also instill self-confidence and motivation in these young minds?</p>
-							  </div>
+							  </div> -->
 							
 							  <!-- Call to Action/Reflection -->
-							  <p class="fade-in">
+							  <!-- <p class="fade-in">
 								🔍 **Reflection**<br>
 								Every experience has challenged me to think beyond myself and approach technology and problem-solving with empathy and purpose. These questions fuel my curiosity and keep me striving for ways to make a more meaningful impact. I’m excited to continue building connections, giving back, and discovering new ways to contribute and grow.
 							  </p>
-							  </article>	
+							  </article>	 -->
+
+							<!-- Contact -->
+							  <article id="contact">
+								<h2 class="major">Contact</h2>
+								<form method="post" action="mailto:utkarsh6@illinois.edu">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								<ul class="icons">
+									<li><a href="https://linkedin.com/in/utkarshsingh34" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/utkarshsingh34" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									<!-- <li><a href="https://x.com/utkarshsingh_34" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
+								</ul>
+							</article>
+
 
 						<!-- Elements -->
 							<article id="elements">
@@ -521,27 +731,28 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p>
-							<a href="https://www.linkedin.com/in/utkarsh-singh-8690b5295/" style="margin-right: 20px;">
-								<i class="fab fa-linkedin fa-2x"></i> <span style="vertical-align: super;"></span>
-							</a>
-							<a href="https://github.com/utkarshsingh34/Projects">
-								<i class="fab fa-github fa-2x"></i> <span style="vertical-align: super;"></span>
-							</a>
-						</p>
+
 					</footer>
 
 			</div>
 
-		<!-- BG -->
-			<div id="bg"></div>
+			<div id="bg">
+				<div id="particles-js"></div>
+			</div>
 
+			
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script type="text/javascript" src="assets/js/particles.min.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script type="text/javascript">
+			particlesJS.load('particles-js', 'assets/config/particles-js.json', function() {});
+		</script>
+		
+
 
 	</body>
 </html>

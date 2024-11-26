@@ -1,0 +1,271 @@
+/* Global Imports */
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+/* Global Colors */
+:root {
+    --primary-color: #D4A017; /* Warm gold */
+    --secondary-color: #F5F5DC; /* Neutral beige */
+    --background-color: #1E1E1E; /* Dark background */
+    --text-color: #D3D3D3; /* Light gray */
+    --highlight-color: #FFFFFF; /* White for text and accents */
+}
+
+/* Global Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: "Source Sans Pro", sans-serif;
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--highlight-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--highlight-color);
+}
+
+/* Typography */
+p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+strong {
+    color: var(--highlight-color);
+    font-weight: 600;
+}
+
+/* Header */
+#header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+    padding: 20px;
+    text-align: center;
+}
+
+#header .logo {
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    border: solid 1px var(--text-color);
+    border-radius: 50%;
+    margin: 1rem auto;
+}
+
+#header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+#header nav ul li a {
+    color: var(--highlight-color);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#header nav ul li a:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+    border-radius: 5px;
+}
+
+/* Footer */
+#footer {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    padding: 20px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+#footer a {
+    color: var(--primary-color);
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+#footer a:hover {
+    color: var(--highlight-color);
+    transform: scale(1.2);
+}
+
+/* Polaroid Cards */
+.polaroid {
+    background: var(--background-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    width: 100%;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.polaroid img {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.polaroid:hover {
+    transform: scale(1.02);
+}
+
+.polaroid-caption {
+    text-align: center;
+    margin-top: 10px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    letter-spacing: 0.05rem;
+}
+
+/* Projects Section */
+.project-card {
+    background: var(--background-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.project-title a {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.project-title a:hover {
+    color: var(--highlight-color);
+}
+
+.project-tech-stack {
+    color: var(--text-color);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    color: var(--highlight-color);
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.project-highlights li {
+    margin-left: 20px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.project-image img {
+    border-radius: 12px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.project-image img:hover {
+    transform: scale(1.03);
+}
+
+/* Buttons */
+button,
+input[type="submit"] {
+    background: var(--primary-color);
+    color: var(--highlight-color);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: var(--highlight-color);
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+button:active,
+input[type="submit"]:active {
+    transform: scale(0.95);
+}
+
+/* Background Overlay */
+#bg:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2,
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p,
+    li {
+        font-size: 0.9rem;
+    }
+
+    #header nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .project-card {
+        padding: 15px;
+    }
+}
