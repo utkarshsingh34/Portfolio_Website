@@ -1,0 +1,705 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Contact | Utkarsh Singh</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎴</text></svg>">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				background-color: #121212;
+				color: white;
+				font-family: 'Inter', sans-serif;
+				line-height: 1.6;
+				overflow-x: hidden;
+				position: relative;
+				min-height: 100vh;
+				width: 100%;
+				/* Hide scrollbar for Chrome, Safari and Opera */
+				&::-webkit-scrollbar {
+					display: none;
+				}
+				/* Hide scrollbar for IE, Edge and Firefox */
+				-ms-overflow-style: none;  /* IE and Edge */
+				scrollbar-width: none;  /* Firefox */
+			}
+			
+			canvas {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+			}
+			
+			/* Header styles */
+			header {
+				padding: 20px 30px;
+				position: fixed;
+				top: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 90%;
+				max-width: 800px;
+				background: rgba(30, 30, 30, 0.8);
+				backdrop-filter: blur(5px);
+				border-radius: 30px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				z-index: 100;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+			}
+			
+			.logo {
+				font-weight: 700;
+				font-size: 1.5rem;
+				color: white;
+				text-decoration: none;
+			}
+			
+			.logo-accent {
+				color: white;
+			}
+			
+			nav ul {
+				display: flex;
+				list-style: none;
+			}
+			
+			nav ul li {
+				margin-left: 25px;
+			}
+			
+			nav ul li a {
+				color: rgba(255, 255, 255, 0.8);
+				text-decoration: none;
+				font-size: 0.9rem;
+				font-weight: 500;
+				padding: 8px 15px;
+				border-radius: 20px;
+				transition: all 0.3s;
+			}
+			
+			nav ul li a:hover {
+				background: rgba(255, 112, 233, 0.2);
+				color: #FF70E9;
+			}
+			
+			nav ul li a.active {
+				background: rgba(255, 112, 233, 0.3);
+				color: #FF70E9;
+			}
+			
+			/* Page main content */
+			main {
+				padding: 120px 30px 60px;
+				max-width: 1000px;
+				margin: 0 auto;
+				position: relative;
+				z-index: 1;
+			}
+			
+			/* Page title */
+			.page-title {
+				font-size: 2.5rem;
+				margin-bottom: 15px;
+				color: white;
+				text-align: center;
+				padding-bottom: 15px;
+				position: relative;
+			}
+			
+			.page-title:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 60px;
+				height: 3px;
+				background: #FF70E9;
+				border-radius: 3px;
+			}
+			
+			.page-subtitle {
+				text-align: center;
+				color: rgba(255, 255, 255, 0.7);
+				margin-bottom: 40px;
+				font-size: 1.1rem;
+			}
+			
+			/* Contact container */
+			.contact-container {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 40px;
+				margin-top: 40px;
+			}
+			
+			/* Contact form */
+			.contact-form {
+				background: rgba(30, 30, 30, 0.7);
+				border-radius: 15px;
+				padding: 30px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				border: 1px solid rgba(255, 255, 255, 0.05);
+				animation: fadeIn 0.5s ease-out forwards;
+			}
+			
+			.form-title {
+				font-size: 1.5rem;
+				font-weight: 600;
+				margin-bottom: 20px;
+				color: white;
+				position: relative;
+				padding-bottom: 10px;
+			}
+			
+			.form-title:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 40px;
+				height: 2px;
+				background: #FF70E9;
+			}
+			
+			.form-group {
+				margin-bottom: 20px;
+			}
+			
+			.form-label {
+				display: block;
+				margin-bottom: 8px;
+				font-size: 0.9rem;
+				color: rgba(255, 255, 255, 0.8);
+			}
+			
+			.form-input,
+			.form-textarea {
+				width: 100%;
+				padding: 12px 15px;
+				background: rgba(20, 20, 20, 0.8);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 8px;
+				color: white;
+				font-family: 'Inter', sans-serif;
+				font-size: 1rem;
+				transition: all 0.3s ease;
+			}
+			
+			.form-input:focus,
+			.form-textarea:focus {
+				border-color: #FF70E9;
+				outline: none;
+				box-shadow: 0 0 0 2px rgba(255, 112, 233, 0.3);
+			}
+			
+			.form-textarea {
+				resize: vertical;
+				min-height: 150px;
+			}
+			
+			.submit-btn {
+				padding: 12px 25px;
+				background: #FF70E9;
+				color: white;
+				border: none;
+				border-radius: 8px;
+				font-weight: 500;
+				font-size: 1rem;
+				cursor: pointer;
+				transition: all 0.3s;
+				display: inline-flex;
+				align-items: center;
+				gap: 10px;
+			}
+			
+			.submit-btn:hover {
+				background: #ff57e3;
+				transform: translateY(-3px);
+				box-shadow: 0 8px 20px rgba(255, 112, 233, 0.4);
+			}
+			
+			/* Contact info */
+			.contact-info {
+				background: rgba(30, 30, 30, 0.7);
+				border-radius: 15px;
+				padding: 30px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				border: 1px solid rgba(255, 255, 255, 0.05);
+				animation: fadeIn 0.5s ease-out forwards;
+				animation-delay: 0.2s;
+				opacity: 0;
+				display: flex;
+				flex-direction: column;
+			}
+			
+			.info-title {
+				font-size: 1.5rem;
+				font-weight: 600;
+				margin-bottom: 20px;
+				color: white;
+				position: relative;
+				padding-bottom: 10px;
+			}
+			
+			.info-title:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 40px;
+				height: 2px;
+				background: #FF70E9;
+			}
+			
+			.info-item {
+				margin-bottom: 25px;
+				display: flex;
+				align-items: flex-start;
+				gap: 15px;
+			}
+			
+			.info-icon {
+				width: 50px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(255, 112, 233, 0.15);
+				border-radius: 12px;
+				font-size: 1.3rem;
+				color: #FF70E9;
+				flex-shrink: 0;
+			}
+			
+			.info-content {
+				flex: 1;
+			}
+			
+			.info-label {
+				font-weight: 600;
+				margin-bottom: 5px;
+				font-size: 1.1rem;
+				color: white;
+			}
+			
+			.info-text {
+				color: rgba(255, 255, 255, 0.7);
+				line-height: 1.7;
+			}
+			
+			.info-link {
+				color: #FF70E9;
+				text-decoration: none;
+				transition: all 0.3s;
+			}
+			
+			.info-link:hover {
+				color: white;
+			}
+			
+			.social-links-horizontal {
+				display: flex;
+				gap: 15px;
+				margin-top: auto;
+				padding-top: 30px;
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			
+			.social-icon {
+				width: 50px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 50%;
+				color: white;
+				font-size: 1.2rem;
+				transition: all 0.3s;
+				text-decoration: none;
+			}
+			
+			.social-icon:hover {
+				background: #FF70E9;
+				transform: translateY(-3px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+			}
+			
+			/* Map section */
+			.map-section {
+				margin-top: 60px;
+				animation: fadeIn 0.5s ease-out forwards;
+				animation-delay: 0.4s;
+				opacity: 0;
+			}
+			
+			.section-title {
+				font-size: 1.4rem;
+				font-weight: 600;
+				margin-bottom: 20px;
+				color: white;
+				text-align: center;
+			}
+			
+			.map-container {
+				height: 350px;
+				border-radius: 15px;
+				overflow: hidden;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				border: 1px solid rgba(255, 255, 255, 0.05);
+			}
+			
+			/* Footer */
+			footer {
+				background: rgba(20, 20, 20, 0.7);
+				padding: 30px 0;
+				margin-top: 60px;
+				border-top: 1px solid rgba(255, 255, 255, 0.05);
+				position: relative;
+				z-index: 1;
+			}
+			
+			.footer-content {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			
+			.footer-content p {
+				color: rgba(255, 255, 255, 0.6);
+				font-size: 0.9rem;
+			}
+			
+			.footer-links {
+				display: flex;
+				gap: 20px;
+			}
+			
+			.footer-links a {
+				color: rgba(255, 255, 255, 0.6);
+				font-size: 1.2rem;
+				transition: all 0.3s ease;
+			}
+			
+			.footer-links a:hover {
+				color: #FF70E9;
+				transform: translateY(-3px);
+			}
+			
+			/* Animations */
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+			
+			/* Responsive styles */
+			@media (max-width: 800px) {
+				.contact-container {
+					grid-template-columns: 1fr;
+				}
+				
+				.contact-info {
+					order: -1;
+				}
+			}
+			
+			@media (max-width: 768px) {
+				header {
+					width: 95%;
+					padding: 12px 15px;
+				}
+				
+				.logo {
+					font-size: 1.2rem;
+				}
+				
+				nav ul {
+					gap: 5px;
+				}
+				
+				nav ul li {
+					margin-left: 0;
+				}
+				
+				nav ul li a {
+					padding: 6px 8px;
+					font-size: 0.8rem;
+				}
+			}
+			
+			@media (max-width: 480px) {
+				header {
+					padding: 10px;
+				}
+				
+				.logo {
+					font-size: 1.1rem;
+				}
+				
+				nav ul li a {
+					padding: 5px 6px;
+					font-size: 0.75rem;
+				}
+			}
+		</style>
+	</head>
+<body>
+    <canvas id="starfield"></canvas>
+    
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">Utkarsh <span class="logo-accent">Singh</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <h1 class="page-title">Contact Me</h1>
+        <p class="page-subtitle">I'd love to hear from you. Feel free to reach out!</p>
+        
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2 class="form-title">Send a Message</h2>
+                <form id="contactForm" action="https://formspree.io/f/xayrljzk" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2 class="info-title">Get in Touch</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3 class="info-label">Email</h3>
+                        <p class="info-text">
+                            <a href="mailto:utkarsh6@illinois.edu" class="info-link">utkarsh6@illinois.edu</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3 class="info-label">LinkedIn</h3>
+                        <p class="info-text">
+                            <a href="https://www.linkedin.com/in/utkarsh-singh34" target="_blank" class="info-link">linkedin.com/in/utkarsh-singh34</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3 class="info-label">Location</h3>
+                        <p class="info-text">Champaign, Illinois, United States</p>
+                    </div>
+                </div>
+                
+                <div class="social-links-horizontal">
+                    <a href="https://github.com/UtkarshSingh34/" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/utkarsh-singh34" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:utkarsh6@illinois.edu" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map Section
+        <div class="map-section">
+            <h2 class="section-title">Find Me</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95621.1621111093!2d-88.30093274631466!3d40.09263233761332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880cd08dde97691b%3A0x30f57847b475bfcf!2sUniversity%20of%20Illinois%20Urbana-Champaign!5e0!3m2!1sen!2sus!4v1696460307644!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div> -->
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Utkarsh Singh. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/UtkarshSingh34/" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/utkarsh-singh34" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:utkarsh6@illinois.edu"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Starfield animation
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        
+        // Star properties
+        let stars = [];
+        const starCount = 200;
+        
+        // Create stars
+        function createStars() {
+            stars = [];
+            for (let i = 0; i < starCount; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.05
+                });
+            }
+        }
+        
+        // Draw stars
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+                ctx.fill();
+                
+                // Move star
+                star.y += star.speed;
+                
+                // Reset star position if it goes off screen
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+            });
+            
+            requestAnimationFrame(drawStars);
+        }
+        
+        // Initialize stars
+        createStars();
+        drawStars();
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalBtnContent = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Submit to Formspree
+            fetch('https://formspree.io/f/xayrljzk', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success state
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                    // Reset form
+                    this.reset();
+                    // Reset button after 2 seconds
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalBtnContent;
+                        submitBtn.disabled = false;
+                    }, 2000);
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                // Show error state
+                submitBtn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error';
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.disabled = false;
+                }, 2000);
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html> 
