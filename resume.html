@@ -1,0 +1,1026 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Resume | Utkarsh Singh</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎴</text></svg>">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+           
+            body {
+                background-color: #121212;
+                color: white;
+                font-family: 'Inter', sans-serif;
+                line-height: 1.6;
+                overflow-x: hidden;
+                position: relative;
+                min-height: 100vh;
+                width: 100%;
+                /* Hide scrollbar for Chrome, Safari and Opera */
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                /* Hide scrollbar for IE, Edge and Firefox */
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+            }
+           
+            canvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+           
+            /* Header styles */
+            header {
+                padding: 20px 30px;
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 800px;
+                background: rgba(30, 30, 30, 0.8);
+                backdrop-filter: blur(5px);
+                border-radius: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+           
+            .logo {
+                font-weight: 700;
+                font-size: 1.5rem;
+                color: white;
+                text-decoration: none;
+            }
+           
+            .logo-accent {
+                color: white;
+            }
+           
+            nav ul {
+                display: flex;
+                list-style: none;
+            }
+           
+            nav ul li {
+                margin-left: 25px;
+            }
+           
+            nav ul li a {
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 500;
+                padding: 8px 15px;
+                border-radius: 20px;
+                transition: all 0.3s;
+            }
+           
+            nav ul li a:hover {
+                background: rgba(255, 112, 233, 0.2);
+                color: #FF70E9;
+            }
+           
+            nav ul li a.active {
+                background: rgba(255, 112, 233, 0.3);
+                color: #FF70E9;
+            }
+           
+            /* Page main content */
+            main {
+                padding: 120px 30px 60px;
+                max-width: 1000px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 1;
+            }
+           
+            /* Page title */
+            .page-title {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+                color: white;
+                text-align: center;
+                padding-bottom: 15px;
+                position: relative;
+            }
+           
+            .page-title:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: #FF70E9;
+                border-radius: 3px;
+            }
+           
+            .page-subtitle {
+                text-align: center;
+                color: rgba(255, 255, 255, 0.7);
+                margin-bottom: 40px;
+                font-size: 1.1rem;
+            }
+           
+            /* Resume Container */
+            .resume-container {
+                background: rgba(30, 30, 30, 0.7);
+                border-radius: 15px;
+                overflow: hidden;
+                padding: 40px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                animation: fadeIn 0.5s ease-out forwards;
+            }
+           
+            .resume-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+           
+            .resume-name-section {
+                text-align: left;
+            }
+           
+            .resume-links-section {
+                text-align: right;
+            }
+           
+            .resume-name {
+                font-size: 2.2rem;
+                font-weight: 700;
+                margin-bottom: 10px;
+                color: white;
+            }
+           
+            .resume-contact {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+           
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+           
+            .contact-item i {
+                color: #FF70E9;
+                width: 18px;
+                text-align: center;
+            }
+           
+            .contact-item a {
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+           
+            .contact-item a:hover {
+                color: #FF70E9;
+            }
+           
+            /* Skills list view styling */
+            .skills-list-view {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+           
+            .skill-category-row {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 15px;
+                background: rgba(25, 25, 25, 0.4);
+                padding: 12px 20px;
+                border-radius: 8px;
+                border-left: 3px solid #FF70E9;
+            }
+           
+            .skill-category-title {
+                font-weight: 600;
+                color: white;
+                font-size: 1rem;
+                min-width: 260px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+           
+            .skill-category-title i {
+                color: #FF70E9;
+            }
+           
+            .skill-items {
+                flex: 1;
+            }
+           
+            .skill-text {
+                color: rgba(255, 255, 255, 0.8);
+                line-height: 1.6;
+            }
+           
+            /* Awards list styling */
+            .awards-list ul {
+                list-style-type: none;
+            }
+           
+            .awards-list li {
+                margin-bottom: 12px;
+                color: rgba(255, 255, 255, 0.8);
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+            }
+           
+            .awards-list li i {
+                color: #FF70E9;
+                margin-top: 5px;
+            }
+           
+            /* Resume Section */
+            .resume-section {
+                margin-bottom: 40px;
+            }
+           
+            .section-title {
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: white;
+                padding-bottom: 10px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+            }
+           
+            .section-title:after {
+                content: '';
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                width: 60px;
+                height: 3px;
+                background: #FF70E9;
+                border-radius: 3px;
+            }
+           
+            /* Education */
+            .education-item {
+                margin-bottom: 25px;
+                animation: fadeIn 0.5s ease-out forwards;
+                animation-delay: calc(var(--delay) * 0.1s);
+                opacity: 0;
+            }
+           
+            .edu-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                margin-bottom: 10px;
+            }
+           
+            .institution {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: white;
+            }
+           
+            .edu-location {
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 0.9rem;
+                text-align: right;
+            }
+           
+            .degree {
+                color: rgba(255, 255, 255, 0.9);
+                font-weight: 500;
+                margin-bottom: 5px;
+            }
+           
+            .edu-date {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.9rem;
+                font-style: italic;
+            }
+           
+            .coursework {
+                margin-top: 10px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+           
+            /* Experience */
+            .experience-item {
+                margin-bottom: 30px;
+                padding-bottom: 25px;
+                border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+                animation: fadeIn 0.5s ease-out forwards;
+                animation-delay: calc(var(--delay) * 0.1s);
+                opacity: 0;
+            }
+           
+            .experience-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+           
+            .exp-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                margin-bottom: 10px;
+            }
+           
+            .job-title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: white;
+                margin-bottom: 5px;
+            }
+           
+            .company {
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.9);
+            }
+           
+            .exp-date-location {
+                text-align: right;
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 0.9rem;
+            }
+           
+            .exp-description {
+                margin-top: 15px;
+            }
+           
+            .exp-description ul {
+                list-style-type: none;
+                margin-left: 5px;
+            }
+           
+            .exp-description li {
+                margin-bottom: 8px;
+                position: relative;
+                padding-left: 20px;
+                color: rgba(255, 255, 255, 0.8);
+                line-height: 1.6;
+            }
+           
+            .exp-description li:before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                color: #FF70E9;
+            }
+           
+            .exp-description strong {
+                color: white;
+                font-weight: 600;
+            }
+           
+            /* Skills Section */
+            .skills-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+                animation: fadeIn 0.5s ease-out forwards;
+                animation-delay: 0.3s;
+                opacity: 0;
+            }
+           
+            .skill-category {
+                background: rgba(25, 25, 25, 0.6);
+                border-radius: 10px;
+                padding: 15px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+           
+            .skill-category-title {
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 12px;
+                color: white;
+                text-align: center;
+                padding-bottom: 8px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+           
+            .skill-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+           
+            .skill-item {
+                background: rgba(130, 87, 230, 0.15);
+                color: #8257e6;
+                border-radius: 15px;
+                padding: 5px 12px;
+                font-size: 0.85rem;
+                display: inline-block;
+                border: 1px solid rgba(130, 87, 230, 0.3);
+            }
+           
+            /* Projects Section */
+            .project-item {
+                margin-bottom: 25px;
+                animation: fadeIn 0.5s ease-out forwards;
+                animation-delay: calc(var(--delay) * 0.1s);
+                opacity: 0;
+            }
+           
+            .project-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                margin-bottom: 10px;
+            }
+           
+            .project-title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: white;
+                margin-bottom: 5px;
+            }
+           
+            .project-links {
+                display: flex;
+                gap: 15px;
+            }
+           
+            .project-link {
+                color: #8257e6;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 0.9rem;
+                transition: all 0.3s;
+            }
+           
+            .project-link:hover {
+                color: white;
+                transform: translateY(-2px);
+            }
+           
+            .project-description {
+                margin-top: 10px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+           
+            .project-description ul {
+                list-style-type: none;
+                margin-left: 5px;
+            }
+           
+            .project-description li {
+                margin-bottom: 8px;
+                position: relative;
+                padding-left: 20px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+           
+            .project-description li:before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                color: #8257e6;
+            }
+           
+            .project-tech {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 12px;
+            }
+           
+            .tech-tag {
+                background: rgba(130, 87, 230, 0.15);
+                color: #8257e6;
+                border-radius: 15px;
+                padding: 3px 10px;
+                font-size: 0.75rem;
+                display: inline-block;
+                border: 1px solid rgba(130, 87, 230, 0.3);
+            }
+           
+            /* Download Button */
+            .download-container {
+                text-align: center;
+                margin: 40px 0 20px;
+                animation: fadeIn 0.5s ease-out forwards;
+                animation-delay: 0.5s;
+                opacity: 0;
+            }
+           
+            .download-btn {
+                padding: 12px 25px;
+                background: #FF70E9;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-weight: 500;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.3s;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                text-decoration: none;
+                box-shadow: 0 4px 15px rgba(255, 112, 233, 0.3);
+            }
+           
+            .download-btn:hover {
+                background: #ff57e3;
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(255, 112, 233, 0.4);
+            }
+           
+            /* Footer */
+            footer {
+                background: rgba(20, 20, 20, 0.7);
+                padding: 30px 0;
+                margin-top: 60px;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                position: relative;
+                z-index: 1;
+            }
+           
+            .footer-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+           
+            .footer-content p {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.9rem;
+            }
+           
+            .footer-links {
+                display: flex;
+                gap: 20px;
+            }
+           
+            .footer-links a {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 1.2rem;
+                transition: all 0.3s ease;
+            }
+           
+            .footer-links a:hover {
+                color: #FF70E9;
+                transform: translateY(-3px);
+            }
+           
+            /* Animations */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+           
+            /* Responsive updates */
+            @media (max-width: 800px) {
+                .resume-header {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+               
+                .resume-links-section {
+                    text-align: left;
+                }
+               
+                .skill-category-row {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+                }
+               
+                .skill-category-title {
+                    min-width: auto;
+                }
+            }
+           
+            @media (max-width: 768px) {
+                header {
+                    width: 95%;
+                    padding: 12px 15px;
+                }
+               
+                .logo {
+                    font-size: 1.2rem;
+                }
+               
+                nav ul {
+                    gap: 5px;
+                }
+               
+                nav ul li {
+                    margin-left: 0;
+                }
+               
+                nav ul li a {
+                    padding: 6px 8px;
+                    font-size: 0.8rem;
+                }
+            }
+           
+            @media (max-width: 480px) {
+                header {
+                    padding: 10px;
+                }
+               
+                .logo {
+                    font-size: 1.1rem;
+                }
+               
+                nav ul li a {
+                    padding: 5px 6px;
+                    font-size: 0.75rem;
+                }
+            }
+           
+            .coursework-section {
+                margin-top: 15px;
+            }
+           
+            .coursework-title {
+                margin-bottom: 12px;
+                color: rgba(255, 255, 255, 0.9);
+                font-weight: 500;
+            }
+           
+            .coursework-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+           
+            .course-item {
+                background: rgba(25, 25, 25, 0.6);
+                border-radius: 8px;
+                padding: 8px 15px;
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.8);
+                transition: all 0.3s ease;
+                border-left: 2px solid #FF70E9;
+            }
+           
+            .course-item:hover {
+                background: rgba(35, 35, 35, 0.8);
+                transform: translateY(-3px);
+                color: white;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+<body>
+    <canvas id="starfield"></canvas>
+   
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">Utkarsh <span class="logo-accent">Singh</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html" class="active">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+   
+    <!-- Main Content -->
+    <main>
+        <h1 class="page-title">Resume</h1>
+        <p class="page-subtitle">My professional background and skillset</p>
+       
+        <div class="resume-container">
+            <div class="resume-header">
+                <div class="resume-name-section">
+                    <h2 class="resume-name">Utkarsh Singh</h2>
+                    <div class="resume-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:utkarsh6@illinois.edu">utkarsh6@illinois.edu</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/UtkarshSingh34/" target="_blank">github.com/UtkarshSingh34</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="resume-links-section">
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin-in"></i>
+                        <a href="https://www.linkedin.com/in/utkarsh-singh34" target="_blank">linkedin.com/in/utkarsh-singh34</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://utkarshsingh34.github.io" target="_blank">utkarshsingh34.github.io</a>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Education Section -->
+            <div class="resume-section">
+                <h3 class="section-title">Education</h3>
+               
+                <div class="education-item" style="--delay: 1;">
+                    <div class="edu-header">
+                        <div>
+                            <h4 class="institution">University of Illinois, Urbana-Champaign - Honors Program</h4>
+                            <p class="degree">B.S. Computer Science and Statistics; GPA: 3.94</p>
+                        </div>
+                        <div class="edu-location">
+                            <p>Expected May 2026</p>
+                        </div>
+                    </div>                    
+                    <p class="coursework"><strong>Coursework:</strong> Data Structures and Algorithms, Object Oriented Programming, Numerical Methods, Discrete Structures, Probability and Statistics, Computational Statistics, Real Analysis, Mathematical and Statistical Methods</p>
+                </div>
+            </div>
+           
+            <!-- Technical Skills Section -->
+            <div class="resume-section">
+                <h3 class="section-title">Technical Skills</h3>
+               
+                <div class="skills-list-view">
+                    <div class="skill-category-row">
+                        <h4 class="skill-category-title"><i class="fas fa-code"></i> Languages and Softwares:</h4>
+                        <div class="skill-items">
+                            <span class="skill-text">C++, Python, SQL, Java, JavaScript, TypeScript, Bash, Excel, Powerpoint</span>
+                        </div>
+                    </div>
+                   
+                    <div class="skill-category-row">
+                        <h4 class="skill-category-title"><i class="fas fa-cubes"></i> Libraries and Frameworks:</h4>
+                        <div class="skill-items">
+                            <span class="skill-text">NumPy, Pandas, Matplotlib, scikit-learn, Axios, Flask, Django, React, Node.JS, Express.JS</span>
+                        </div>
+                    </div>
+                   
+                    <div class="skill-category-row">
+                        <h4 class="skill-category-title"><i class="fas fa-server"></i> DevOps, Databases and Testing:</h4>
+                        <div class="skill-items">
+                            <span class="skill-text">Docker, AWS, Firebase, MongoDB, MySQL, PostgreSQL, Redis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Experience Section -->
+            <div class="resume-section">
+                <h3 class="section-title">Experience</h3>
+               
+                <div class="experience-item" style="--delay: 1;">
+                    <div class="exp-header">
+                        <div>
+                            <h4 class="job-title">Software Engineering Intern</h4>
+                            <p class="company">Subliva</p>
+                        </div>
+                        <div class="exp-date-location">
+                            <p>Sep 2024 - Dec 2024</p>
+                            <p>Champaign, IL</p>
+                        </div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li>Developed a business platform using <strong>React, Express.js</strong>, and <strong>Firebase</strong>, resulting in a <strong>75% increase in users</strong> in 3 months</li>
+                            <li>Implemented secure real-time communication and geolocation-based filtering features with <strong>WebSockets</strong> and <strong>Google Maps API</strong>, resulted in a <strong>35% increase</strong> in average session duration, leading to a <strong>25% improvement in conversion rates</strong> in 2 months</li>
+                            <li>Automated legal processes through <strong>DocuSign API</strong>, reducing contract creation time by <strong>50%</strong> and streamlining user workflows</li>
+                        </ul>
+                    </div>
+                </div>
+               
+                <div class="experience-item" style="--delay: 2;">
+                    <div class="exp-header">
+                        <div>
+                            <h4 class="job-title">Data Science Intern</h4>
+                            <p class="company">Pink Unicorn Algorithms</p>
+                        </div>
+                        <div class="exp-date-location">
+                            <p>Sep 2024 - Dec 2024</p>
+                            <p>Remote</p>
+                        </div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li>Developed a ML model to <strong>automate</strong> auditing for cloud configuration compliance, using <strong>MobileNet</strong> and <strong>DistilBERT</strong>, optimizing computational efficiency and reducing review time by <strong>80%</strong> and achieving <strong>90% accuracy</strong> in compliance checks</li>
+                            <li>Utilized <strong>pre-processing</strong> techniques such as thresholding and grayscaling using <strong>OpenCV</strong> and performed <strong>OCR</strong> using Tesseract</li>
+                        </ul>
+                    </div>
+                </div>
+               
+                <div class="experience-item" style="--delay: 3;">
+                    <div class="exp-header">
+                        <div>
+                            <h4 class="job-title">Undergraduate Teaching Assistant</h4>
+                            <p class="company">CS and Physics Dept, University of Illinois</p>
+                        </div>
+                        <div class="exp-date-location">
+                            <p>Jan 2024 - Dec 2024</p>
+                            <p>Champaign, IL</p>
+                        </div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li>Mentored <strong>700+</strong> students in <strong>Java</strong> programming and University Physics, leading to a <strong>15% increase</strong> in average course grades</li>
+                            <li>Designed 5 mobile app development projects, contributing to a <strong>10% rise</strong> in course completion rates</li>
+                        </ul>
+                    </div>
+                </div>
+               
+                <div class="experience-item" style="--delay: 4;">
+                    <div class="exp-header">
+                        <div>
+                            <h4 class="job-title">Software Engineer Intern</h4>
+                            <p class="company">Headstarter AI</p>
+                        </div>
+                        <div class="exp-date-location">
+                            <p>Jul 2024 - Sept 2024</p>
+                            <p>Remote</p>
+                        </div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li>Optimized API communication with <strong>Axios</strong> and <strong>Redis</strong>, resulting in a <strong>30% decrease</strong> in latency and a <strong>15% increase</strong> in throughput, enhancing backend performance and ensuring secure data handling</li>
+                            <li>Enhanced user interface with <strong>React</strong>, leading to a <strong>20% increase</strong> in customer satisfaction scores and a <strong>10% reduction</strong> in conversation abandonment rates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Student Organizations Section -->
+            <div class="resume-section">
+                <h3 class="section-title">Student Organizations</h3>
+               
+                <div class="experience-item" style="--delay: 1;">
+                    <div class="exp-header">
+                        <div>
+                            <h4 class="job-title">Software Engineer</h4>
+                            <p class="company">Project Code</p>
+                        </div>
+                        <div class="exp-date-location">
+                            <p>Aug 2024 - Dec 2024</p>
+                            <p>Champaign, IL</p>
+                        </div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li>Developed a vector-based music recommendation system leveraging the <strong>LastFM</strong> database to retrieve song metadata and recommend based on <strong>cosine similarity</strong>, using <strong>IBM Watson</strong> for relevancy improving recommendation accuracy by <strong>15%</strong></li>
+                            <li>Engineered a <strong>KD-Tree algorithm</strong> to optimize nearest-neighbor search, resulting in a song retrieval time of <strong>under 5 seconds</strong></li>
+                            <li>Integrated <strong>Spotify's OAuth 2.0</strong> authorization flow, enabling <strong>500+</strong> users to directly like and save songs to their playlists</li>
+                        </ul>
+                    </div>
+                </div>
+               
+                <div class="experience-item" style="--delay: 2;">
+                    <div class="exp-header">
+                        <div>
+                            <h4 class="job-title">Web Developer</h4>
+                            <p class="company">Computer Science SAIL</p>
+                        </div>
+                        <div class="exp-date-location">
+                            <p>Aug 2024 - Present</p>
+                            <p>Champaign, IL</p>
+                        </div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li>Designed and implemented the frontend for the CS SAIL website using <strong>React</strong> and <strong>Material UI</strong>, serving <strong>1000+</strong> users</li>
+                            <li>Enhanced backend performance and implemented user profiles with <strong>Flask</strong> and <strong>PostgreSQL</strong>, reducing user load times by <strong>30%</strong></li>
+                            <li>Established a testing environment with <strong>bash scripts</strong>, improving code reliability and reducing deployment errors by <strong>60%</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Honors and Awards -->
+            <div class="resume-section">
+                <h3 class="section-title">Honors and Awards</h3>
+               
+                <div class="awards-list">
+                    <ul>
+                        <li><i class="fas fa-award"></i> Awarded Dean's List for maintaining a GPA in the top 20th percentile of the College of LAS, Aug 2023 - Present</li>
+                        <li><i class="fas fa-medal"></i> <strong>SAT:</strong> 1510/1600 | Math: 780/800 | Reading and Writing: 730/800, Aug 2022</li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="download-container">
+                <a href="Resume_UtkarshSingh.pdf" class="download-btn" download>
+                    <i class="fas fa-download"></i> Download PDF Version
+                </a>
+            </div>
+        </div>
+    </main>
+   
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Utkarsh Singh. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/UtkarshSingh34/" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/utkarsh-singh34" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:utkarsh6@illinois.edu"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+   
+    <script>
+        // Starfield animation
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+       
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+       
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+       
+        // Star properties
+        let stars = [];
+        const starCount = 200;
+       
+        // Create stars
+        function createStars() {
+            stars = [];
+            for (let i = 0; i < starCount; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.05
+                });
+            }
+        }
+       
+        // Draw stars
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+           
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+                ctx.fill();
+               
+                // Move star
+                star.y += star.speed;
+               
+                // Reset star position if it goes off screen
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+            });
+           
+            requestAnimationFrame(drawStars);
+        }
+       
+        // Initialize stars
+        createStars();
+        drawStars();
+    </script>
+</body>
+</html>
