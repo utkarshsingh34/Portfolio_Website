@@ -1,762 +1,541 @@
 <!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>Utkarsh Singh</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-			<style>
-							/* #bg {
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎴</text></svg>">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				background-color: #121212;
+				color: white;
+				font-family: 'Inter', sans-serif;
+				line-height: 1.6;
+				overflow-x: hidden;
+				position: relative;
+				min-height: 100vh;
+				width: 100%;
+				/* Hide scrollbar for Chrome, Safari and Opera */
+				&::-webkit-scrollbar {
+					display: none;
+				}
+				/* Hide scrollbar for IE, Edge and Firefox */
+				-ms-overflow-style: none;  /* IE and Edge */
+				scrollbar-width: none;  /* Firefox */
+			}
+			
+			canvas {
 				position: fixed;
 				top: 0;
 				left: 0;
 				width: 100%;
 				height: 100%;
-				overflow: hidden;
-				z-index: -1; /* Pushes the video behind all content */
-				/* background: url('BackgroundPng.png') no-repeat center center/cover;
-
-				} */
-
-				/* #bg video {
-								
-				position: absolute;
-				top: 50%;
+				z-index: -1;
+			}
+			
+			header {
+				padding: 20px 30px;
+				position: fixed;
+				top: 20px;
 				left: 50%;
-				transform: translate(-50%, -50%);
+				transform: translateX(-50%);
+				width: 90%;
+				max-width: 800px;
+				background: rgba(30, 30, 30, 0.8);
+				backdrop-filter: blur(5px);
+				border-radius: 30px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				z-index: 100;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+			}
+			
+			.logo {
+				font-weight: 700;
+				font-size: 1.5rem;
+				color: white;
+				text-decoration: none;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+			
+			.logo-accent {
+				color: white;
+			}
+			
+			nav ul {
+				display: flex;
+				list-style: none;
+			}
+			
+			nav ul li {
+				margin-left: 25px;
+			}
+			
+			nav ul li a {
+				color: rgba(255, 255, 255, 0.8);
+				text-decoration: none;
+				font-size: 0.9rem;
+				font-weight: 500;
+				padding: 8px 15px;
+				border-radius: 20px;
+				transition: all 0.3s;
+			}
+			
+			nav ul li a:hover {
+				background: rgba(255, 112, 233, 0.2);
+				color: #FF70E9;
+			}
+			
+			nav ul li a.active {
+				background: rgba(255, 112, 233, 0.3);
+				color: #FF70E9;
+			}
+			
+			main {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 100vh;
+				padding: 120px 30px 60px;
+				position: relative;
+				z-index: 1;
+			}
+			
+			.hero-container {
+				max-width: 1200px;
 				width: 100%;
-				height: 100%; */
-				/* object-fit: cover; /* Adjusts the video to fill the container while maintaining its aspect ratio */
-				/* object-position: center; /* Ensures the center of the video is prioritized */
-			    /* filter: blur(0px); Adjust blur as needed */ 
-
-				/* } */
-			.polaroid {
-				background: rgb(61, 58, 58);
-				padding: 15px 15px 45px 15px;
-				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-				transform: rotate(3deg);
-				transition: transform 0.3s ease;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 50px;
+				animation: fadeIn 0.5s ease-out forwards;
+			}
+			
+			.hero-text {
+				flex: 1;
+				min-width: 300px;
+			}
+			
+			.hero-image {
+				flex: 0.8;
+				min-width: 300px;
+				display: flex;
+				justify-content: center;
+			}
+			
+			.profile-img {
 				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 4px solid rgba(255, 112, 233, 0.6);
+				box-shadow: 0 0 30px rgba(255, 112, 233, 0.3);
+				animation: float 4s infinite ease-in-out;
+			}
+			
+			h1 {
+				font-size: 3.5rem;
+				font-weight: 700;
+				margin-bottom: 20px;
+				line-height: 1.2;
+				animation: fadeIn 0.3s ease-out forwards;
+			}
+			
+			h1 span {
+				color: #FF70E9;
 				position: relative;
 			}
-
-			.polaroid:hover {
-				transform: rotate(0deg) scale(1.02);
-			}
-
-			.polaroid img {
-				width: 100%;
-				height: 350px;
-				object-fit: cover;
-				display: block;
-			}
-
-			.polaroid-caption {
-				text-align: center;
-				margin-top: 15px;
-				font-family: 'Permanent Marker', cursive;
-				color: #dfdfdf;
-				font-size: 1.2em;
-			}
-
-			/* Add subtle film grain texture */
-			.polaroid::before {
+			
+			h1 span:after {
 				content: '';
 				position: absolute;
-				top: 0;
+				bottom: 10px;
 				left: 0;
+				width: 100%;
+				height: 8px;
+				background: rgba(255, 112, 233, 0.3);
+				z-index: -1;
+				border-radius: 4px;
+			}
+			
+			.subtitle {
+				font-size: 1.5rem;
+				color: #FF70E9;
+				margin-bottom: 20px;
+				font-weight: 500;
+				animation: fadeIn 0.4s ease-out forwards;
+			}
+			
+			.description {
+				font-size: 1.1rem;
+				color: rgba(255, 255, 255, 0.8);
+				margin-bottom: 20px;
+				animation: fadeIn 0.5s ease-out forwards;
+				max-width: 600px;
+			}
+			
+			.bio {
+				margin-bottom: 30px;
+				color: rgba(255, 255, 255, 0.7);
+				font-size: 1rem;
+				line-height: 1.7;
+				animation: fadeIn 0.6s ease-out forwards;
+				max-width: 600px;
+			}
+			
+			.triangle-pattern {
+				position: absolute;
+				top: 0;
 				right: 0;
-				bottom: 0;
-				background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVfJ92AAAACHRSTlMzMzMzMzMzM85JBgUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAwSURBVDjLY2AYBaNg8AJGYQEmGMMMQxjEoIJxDGpQwQSGJKhgMkMZVDCNYcCoAAC/9AkG1qHDBAAAAABJRU5ErkJggg==');
-				opacity: 0.03;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				opacity: 0.3;
 				pointer-events: none;
+			}
+			
+			.triangle {
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-left: 15px solid transparent;
+				border-right: 15px solid transparent;
+				border-bottom: 25px solid #FF70E9;
+				transform: rotate(var(--rotation));
+				opacity: var(--opacity);
+				animation: float 6s infinite ease-in-out;
+				animation-delay: var(--delay);
+			}
+			
+			.cta-buttons {
+				display: flex;
+				gap: 15px;
+				margin-bottom: 40px;
+				justify-content: center;
+				animation: fadeIn 0.7s ease-out forwards;
+			}
+			
+			.btn {
+				padding: 12px 24px;
+				border-radius: 8px;
+				font-weight: 500;
+				font-size: 1rem;
+				cursor: pointer;
+				transition: all 0.3s;
+				text-decoration: none;
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+			}
+			
+			.primary-btn {
+				background: #FF70E9;
+				color: white;
+				border: none;
+				box-shadow: 0 4px 10px rgba(255, 112, 233, 0.3);
+			}
+			
+			.primary-btn:hover {
+				background: #ff57e3;
+				transform: translateY(-3px);
+				box-shadow: 0 8px 20px rgba(255, 112, 233, 0.4);
+			}
+			
+			.secondary-btn {
+				background: rgba(255, 112, 233, 0.15);
+				color: #FF70E9;
+				border: 1px solid rgba(255, 112, 233, 0.5);
+			}
+			
+			.secondary-btn:hover {
+				background: rgba(255, 112, 233, 0.25);
+				transform: translateY(-3px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+			}
+			
+			.dashboard-preview {
+				width: 100%;
+				max-width: 900px;
+				margin: 0 auto;
+				border-radius: 10px;
+				box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+				overflow: hidden;
+				opacity: 0;
+				transform: translateY(20px);
+				animation: fadeIn 0.8s ease-out 0.3s forwards;
+			}
+			
+			.dashboard-preview img {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+			
+			.social-links {
+				display: flex;
+				gap: 15px;
+				animation: fadeIn 0.8s ease-out forwards;
+				margin-top: 40px;
+				justify-content: center;
+			}
+			
+			.social-icon {
+				width: 45px;
+				height: 45px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 50%;
+				color: white;
+				font-size: 1.2rem;
+				transition: all 0.3s;
+				text-decoration: none;
+			}
+			
+			.social-icon:hover {
+				background: #FF70E9;
+				transform: translateY(-3px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+			}
+			
+			@keyframes float {
+				0%, 100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-15px);
+				}
+			}
+			
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+			
+			/* Responsive styles */
+			@media (max-width: 768px) {
+				header {
+					width: 95%;
+					padding: 12px 15px;
+				}
+				
+				.logo {
+					font-size: 1.2rem;
+				}
+				
+				nav ul {
+					gap: 5px;
+				}
+				
+				nav ul li {
+					margin-left: 0;
+				}
+				
+				nav ul li a {
+					padding: 6px 8px;
+					font-size: 0.8rem;
+				}
+				
+				.hero-container {
+					flex-direction: column-reverse;
+					text-align: center;
+				}
+				
+				.hero-text {
+					min-width: 100%;
+				}
+				
+				h1 {
+					font-size: 2.5rem;
+				}
+				
+				.social-links, .cta-buttons {
+					justify-content: center;
+				}
+			}
+			
+			@media (max-width: 480px) {
+				header {
+					padding: 10px;
+				}
+				
+				.logo {
+					font-size: 1.1rem;
+				}
+				
+				nav ul li a {
+					padding: 5px 6px;
+					font-size: 0.75rem;
+				}
 			}
 		</style>
 	</head>
-	<body class="is-preload">
-		<!-- <div id="bg">
-			<video autoplay muted loop playsinline>
-			  <source src="179908-862981818.mp4" type="video/mp4" />
-			  <-- Fallback Background Image -->
-			  <!-- <img src="BackgroundPng.PNG" alt="Fallback Background" />
-			</video>
-		  </div> -->
-		<style>
-			/* Hide scrollbars for all elements */
-			* {
-				scrollbar-width: none; /* Firefox */
-				-ms-overflow-style: none; /* Internet Explorer and Edge */
-			}
-
-			/* Hide scrollbars for WebKit browsers (Chrome, Safari, etc.) */
-			*::-webkit-scrollbar {
-				display: none;
-			}
-
-			/* Ensure content is still scrollable */
-			body {
-				overflow: auto;
-			}
-		</style>
-		
-		<!-- Wrapper -->
-			<div id="wrapper">
-				
-
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<img src="Headshot.jpeg" alt=""/>
-						</div>
-
-						<div class="content">
-							<div class="inner">
-								<h1 style="color: #ffffff; font-family: 'Helvetica', sans-serif;" >Hey, I'm Utkarsh 👋</h1>
-								<p>												I enjoy building stuff that makes people's lives better.
-								</p>
-								<p style="color:#ffffffb0">
-									<a href="https://github.com/utkarshsingh34/"style="margin-right: 20px;">
-										<i class="fab fa-github fa-2x"></i> <span style="vertical-align: super;"></span>
-									</a>
-		
-									<a href="https://www.linkedin.com/in/utkarsh-singh34" style="margin-right: 20px;">
-										<i class="fab fa-linkedin fa-2x"></i> <span style="vertical-align: super;"></span>
-									</a>
-								
-									<!-- <a href="https://x.com/utkarshsingh_34">
-										<i class="fab fa-twitter fa-2x"></i> 
-									</a> -->
-								</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#about">About</a></li>
-								<li><a href="#work">Work</a></li>
-								<li><a href="#projects">Projects</a></li>
-								<li><a href="#contact">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
-					</header>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- About -->
-							<article id="about">
-								<h2 class="major" style="letter-spacing:5px;">About Me</h2>
-									<!-- <p>
-										This section contains a curated collection of my philosophies, hobbies and photos. If anything resonates with you, I want to know. Reach me here.
-									</p> -->
-								<div class="tldr">
-									<h3>TL;DR</h3>
-									<ul style="max-width: 100%; word-wrap: break-word;">
-										<li style="margin-bottom: 0.5em;">
-											<span class="emoji">🛍️</span>
-											<span>Aspiring Software Engineer interested in AI/ML (Check out my <a href="#projects" style="margin-right: 0px;">projects!</a>)</span>
-										</li>
-										<li style="margin-bottom: 0.5em;">
-											<span class="emoji">🌟</span>
-											<span>Web Developer at <a href="https://sail.cs.illinois.edu/">CS SAIL</a> & Prev SWE Fellow at <a href="https://headstarter.co/">Headstarter AI</a></span>
-										</li>
-										<li style="margin-bottom: 0.5em;">
-											<span class="emoji">🎓</span>
-											<span>Transferring to B.S. in Mathematics and Computer Science at <a href="https://siebelschool.illinois.edu/academics/undergraduate/degree-program-options/bs-mathematics-computer-science">UIUC</a>
-											<img src="uiuclogo.png" alt="UIUC Logo" style="height: 1em; width: auto; display: inline-block; vertical-align: middle; margin: 0 0.2em;"></span>
-										</li>
-										<li style="margin-bottom: 0.5em;">
-											<span class="emoji">🌌</span>
-											<span>Fascinated by physics, stargazing, and pondering the universe</span>
-										</li>
-										<li style="margin-bottom: 0.5em;">
-											<span class="emoji">☕️</span>
-											<span>I love coffee, chess, philosophy, history, reading and basketball</span>
-										</li>
-									</ul>
-								</div>
-
-								<!-- What I Think Section -->
-
-								<!-- <div class="tldr">
-									<h3>TL;DR</h3>
-								</div> -->
-									<div style="display: flex; align-items: flex-start;">
-										<div style="flex: 1; margin-right: 20px;">
-											
-											<p>
-												☀️ <strong>work</strong><br>
-													I see technology not just as a tool, but as a bridge to connect people, ideas, and possibilities. My work revolves around creating impactful solutions that bring value and meaning to people's lives. I'm not drawn to the routine of just doing what's expected. I'm excited by the possibility of creating something innovative, scalable, and, most importantly, meaningful. I thrive in environments where I can experiment, learn, and push boundaries. I'm here to build cool things, collaborate with great minds, and contribute to projects that make a difference.
-											</p>
-										</div>
-										<span class="polaroid" style="flex: 0 0 40%;">
-											<img src="WhatsApp Image 2024-10-04 at 4.22.05 PM.jpeg" alt="" style="width: 100%; height: auto;" />
-												<div class="polaroid-caption">Chicago, 2024</div>
-											
-										</span>
-									</div>
-
-									<div style="display: flex; flex-direction: column; gap: 20px;">
-										<div style="display: flex; align-items: flex-start;">
-											<!-- <span class="polaroid" style="flex: 0 0 40%; margin-right: 20px;">
-												<img src="Utkarsh_Sirius.jpeg" alt="" style="width: 100%; height: auto;" />
-											<div class="polaroid-caption">Chicago, 2024</div>
-											</span> -->
-											<div style="flex: 1;">
-												<p>
-													🌱 <strong>life</strong><br>
-												I’m more than just code and algorithms. I find joy in exploring different aspects of life, whether it’s engaging in deep conversations, going down random rabbitholes, or simply enjoying a cup of coffee. My upbringing in Mumbai centered around the key values- curiosity, hardwork, empathy, and resilience. For me, life is about learning from every experience, staying disciplined, and embracing the unpredictable journey ahead.
-												</p>
-											</div>
-										</div>
-									
-									<div style="display: flex; align-items: flex-start;">
-										<!-- <span class="polaroid" style="flex: 0 0 40%; margin-right: 20px;">
-											<img src="WhatsApp Image 2024-10-04 at 6.16.49 PM.jpeg" alt="" style="width: 100%; height: auto;" />
-											<div class="polaroid-caption">Chicago, 2024</div>
-										</span> -->
-										<div style="flex: 1;">
-											<p>
-												⚖️ <strong>balance</strong><br> 
-												Balancing ambition with mindfulness is key. I believe in the importance of pausing, reflecting, and recharging. While I’m driven by goals and challenges, I recognize the value of taking a step back to gain perspective and recalibrate. For me, true success goes beyond professional milestones—it’s about thriving in every aspect of life and spending time with loved ones.
-											</p>
-
-										</div>
-									</div>	
-								</div>
-
-								<!-- Hobbies Section -->
-								<!-- <div class="tldr">
-									<h3>TL;DR</h3>
-									<ul>
-										<li><span class="emoji">♟️</span> Playing chess and immersing myself in strategic challenges</li>
-										<li><span class="emoji">🏀</span> Watching and playing basketball</li>
-										<li><span class="emoji">🪐</span> Stargazing and exploring the night sky</li>
-										<li><span class="emoji">📖</span> Reading philosophy and physics books</li>
-										<li><span class="emoji">🌟</span> Writing and researching random topics</li>
-									</ul>
-								</div> -->
-							
-								<!-- Photo Section -->
-								<!-- <div class="tldr">
-									<h3>TL;DR</h3>
-									</div>
-								<div class="photo-grid">
-									<img src="crab nebula.jpg" alt="Exploring Chicago" />
-									<img src="BeautifulPhoto.jpeg" alt="Stargazing moments" />
-									<img src="BackgroundPng.PNG" alt="Chess game" />
-								</div>
-							-->
-							</article>
-
-						<!-- Experience -->
-							<article id="work">
-
-								<h2 class="major">Experience</h2>
-								<ul>
-									
-									<h3 style="color: #ffffff; font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em;">Lead Software Engineer</h3>
-													<p style="color: #ffffffaf; margin: 0 0 0.5em 0;">Subliva | Sep 2024 - Nov 2024</p>
-													<p style="color: white; line-height: 1.6; margin-bottom: 0.5;">Leading web development efforts as the core developer on a cross-functional team to develop the MVP for their subleasing platform (C2C).</p>
-
-													<hr style="margin: 10px 0;">
-
-													<h3 style="color: #ffffff; font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em;">Software Engineer</h3>
-													<p style="color: #ffffffaf; margin: 0 0 0.5em 0;">Project Code | Aug 2024 - Present</p>
-													<p style="color: #ffffff; line-height: 1.6; margin-bottom: 0.5;">Leading development of the MUSIQA website, developing a refereshing algorithm for users bored of Spotify's recommendations.</p>
-
-													<hr style="margin: 10px 0;">
-
-													<h3 style="color: #ffffff; font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em;">Web Developer</h3>
-													<p style="color: #ffffffaf; margin: 0 0 0.5em 0;">CS SAIL | Aug 2024 - Present</p>
-													<p style="color: #ffffff; line-height: 1.6; margin-bottom: 0.5;">Working with the SAIL team to develop the CS SAIL 2025 website, creating a platform capable of hosting 1000+ concurrent users.</p>
-
-													<hr style="margin: 10px 0;">
-
-													<h3 style="color: #ffffff; font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em;">Software Engineer Fellow</h3>
-													<p style="color: #ffffffaf; margin: 0 0 0.5em 0;">Headstarter AI | Jul 2024 - Sep 2024</p>
-													<p style="color: #ffffff; line-height: 1.6; margin-bottom: 0.5;">Developed 4+ AI-powered applications in a 12-week immersive program, learning best practices in software engineering.
-													</p>
-					
-																			
-										
-																			
-								</ul>
-								<h2 class="major">Education</h2>
-								<div style="display: flex; flex-direction: column; gap: 20px;">
-									<h3 style="color: #ffffff; font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em;">University of Illinois, Urbana-Champaign</h3>
-									<div style="display: flex; align-items: flex-start; gap: 20px;">
-										<img src="DHNkdRfXoAEp2VD.0.jpg" alt="UIUC Logo" style="width: 100px; height: 100px;">
-										<div>
-											<p style="color: #ffffffaf; margin: 0 0 0.5em 0;">B.S. Astronomy + Data Science | Aug 2023 - Dec 2026</p>
-											<n>GPA: 4.0/4.0 | Dean's List | James Scholar Honors</n>
-											<hr style="margin: 5px 0;">
-
-											<p>RSOs: Project code, CS Sail, buildillinois, UIAS, SEA, Chess Club, Track and Field Club </p>
-										</div>
-										
-									</div>
-								</div>
-								<form method="GET" action="https://drive.google.com/file/d/1DMDhKQ0qEQ5A8fPYoGFrjt1nBuUV3r9M/view?usp=sharing">
-									<input type="submit" value="View Full Resumé">
-									</form>	
-							</article>
-
-						<!-- Projects -->
-							<!-- Projects -->
-<article id="projects">
-	<h2 class="major">Current Projects</h2>
-  
-	  <!-- AI Evidence Auditor Project -->
-	<div class="project-card">
-		<h3 class="project-title">
-		  AI Evidence Auditor
-		</h3>
-		<p class="project-tech-stack"><em>Python, TensorFlow, Tesseract, OpenCV, Hugging Face, Azure</em></p>
-		<p class="project-description">
-		  First time working with an industry dev team. The goal of this project is to develop a CPU-optimized, cost efficient end-to-end AI solution to automate manual auditing of cloud configuration
-		  compliance.
-		</p>
-		<ul class="project-highlights">
-		  <li>Learning through building. Training a CNN model on a loaded dataset using keras to classify images as relatable or unrelatable for an initial validation check.</li>
-		  <li>Images classified as relatable are preprocessed by converting to grayscale and applying thresholding to enhance text visibility. Performing Optical Character Recognition (OCR) on pre-processed images using Tesseract for text extraction.</li>
-			<li>Researching and learning to apply Natural Language Processing via DistilledBERT from the Hugging Face library to automatically audit extracted text from
-			the previous step.</li>
-		<li>Utilizing Redis to cache calls to Azure and AWS policy configuration APIs for real-time compliance checks.</li>
-		</ul>
-		<form method="GET" action="https://colab.research.google.com/drive/1JPbaGGLmXVSEGiBFwG4CZeLBwO-2Y7AI?usp=sharing">
-			<input type="submit" value="View Code Sample">
-			</form>
-	  </div>
-
-	  	<!-- MUSIQA Project
-	<div class="project-card">
-		<h3 class="project-title">
-		  <a href="https://music-recommendation-eight.vercel.app/" target="_blank">MUSIQA | Music Recommendation</a>
-		</h3>
-		<p class="project-tech-stack"><em>React, Node.js, Spotify API, NumPy, Scikit-learn, Vercel</em></p>
-		<p class="project-description">
-		  Designed and implemented a vector-based music recommendation system leveraging the LastFM Database to retrieve song metadata and recommend based on cosine similarity, with advanced NLP analysis on lyrics using IBM Watson for relevancy.
-		</p>
-		<ul class="project-highlights">
-		  <li>Engineered a KD-Tree algorithm to optimize nearest-neighbor search, reducing retrieval time to under 5 seconds.</li>
-		  <li>Integrated OAuth 2.0 authentication with Spotify for secure logins and seamless playlist management.</li>
-		</ul>
-		<form method="GET" action="https://colab.research.google.com/drive/1JPbaGGLmXVSEGiBFwG4CZeLBwO-2Y7AI?usp=sharing">
-			<input type="submit" value="View Github">
-			</form>
-
-	  </div> -->
-
-	<h2 class="major">Past Projects</h2>
-  
-	<!-- Realtime AI Chatbot -->
-	<div class="project-card">
-	  <h3 class="project-title">
-		<a href="https://github.com/utkarshsingh34/AI-Chatbot" target="_blank">Realtime AI Chatbot</a>
-	  </h3>
-	  <p class="project-tech-stack"><em>React, Next.js, Axios, Firebase, OpenAI API</em></p>
-	  <p class="project-description">
-		Developed a context-aware AI chatbot using React and OpenAI’s GPT model with dynamic chat functionalities and fast response times. Gained familiarity with using RESTful APIs and axios for endpoint communication and error handling.
-	  </p>
-	  <form method="GET" action="https://github.com/utkarshsingh34/AI-Chatbot">
-		<input type="submit" value="View Github Repository">
-		</form>
-	</div>
-
-	<div class="project-card">
-		<h3 class="project-title">
-		  <a href="https://github.com/utkarshsingh34/NBA-EDA" target="_blank">Exploratory Analysis on NBA Data</a>
-		</h3>
-		<p class="project-tech-stack"><em>Pandas, Scikit-learn, Seaborn</em></p>
-		<p class="project-description">
-		  Analyzed the evolution of the NBA over the last two decades through player performance trends, highlighting a shift towards a dynamic and fast-paced game in recent years, influenced significantly by the prominence of three-pointers in today's basketball. Got comfortable using pandas, matplotlib and seaborn for data analysis.
-		</p>
-		<form method="GET" action="https://github.com/utkarshsingh34/NBA-EDA">
-		  <input type="submit" value="View Github Repository">
-		  </form>
-	  </div>
-
-	<div class="project-card">
-		<h3 class="project-title">
-		  <a href="https://github.com/utkarshsingh34/Inventory" target="_blank">Inventory Management System</a>
-		</h3>
-		<p class="project-tech-stack"><em>React, Next.js, Firebase, Vercel</em></p>
-		<p class="project-description">
-		  First ever Independant project. Developed a simple inventory management system to get my hands dirty with web development.
-		</p>
-		<form method="GET" action="https://github.com/utkarshsingh34/Inventory">
-		  <input type="submit" value="View Github Repository">
-		  </form>
-	  </div>
-
-	  <div class="project-card">
-		<h3 class="project-title">
-		  Interactive Vending Machine
-		</h3>
-		<p class="project-tech-stack"><em>Arduino, C++, Blender, 3D Printing, Figma</em></p>
-		<p class="project-description">
-		  Collaborated with my high school tech team to build a soda vending machine using arduinos. Gained familiarity with tools like Blender and Figma and 3D printed the final design.
-		</p>
-	  </div>
-
-
-
-  </article>
-  
-
-						<!-- Involvement
-						<article id="involvement">
-							<h2 class="major">Involvement</h2>
-							<p class="fade-in">
-								🌟 **Why it matters**<br>
-								I believe true growth comes from stepping beyond our comfort zones and connecting with diverse communities. Involvement isn’t just about gaining experience but about fostering meaningful connections, creating a positive impact, and expanding perspectives. Each organization I’ve contributed to has shaped my journey, leaving me with new questions and a greater drive to keep learning.
-							  </p>
-							
-							 CS SAIL
-							  <div>
-								<h3>💻 CS SAIL | Web Developer & Designer</h3>
-								<p class="fade-in">Working with CS SAIL has been about more than just coding—it’s about creating opportunities for students to discover their passion for computer science. What excites me most is the potential to spark curiosity and inspire future tech enthusiasts. How can we build a platform that not only educates but also empowers students to pursue their interests fearlessly?</p>
-							  </div>
-							
-							  Tutoring
-							  <div>
-								<h3>📚 Tutoring | Empowering Future Coders</h3>
-								<p class="fade-in">Tutoring has been a deeply rewarding experience that taught me the power of patience and encouragement. Seeing a student’s confidence grow as they grasp a new concept fuels my passion for teaching. I often ask myself: What more can I do to make complex topics feel approachable and inspire a lifelong love of learning?</p>
-							  </div>
-							
-							  Hamari Sillai
-							  <div>
-								<h3>🌍 Hamari Sillai | Volunteer & Marketing Support</h3>
-								<p class="fade-in">Being involved with Hamari Sillai has shown me the resilience and creativity of women striving for economic independence. What I found most inspiring is how technology can amplify their efforts and stories. How can we continue to leverage tech to create sustainable income streams for marginalized communities?</p>
-							  </div>
-							
-							 Seva Trust Foundation -->
-							  <!-- <div>
-								<h3>🏞️ **Seva Trust Foundation** | Volunteer & Documentary Assistant</h3>
-								<p class="fade-in">Documenting the stories of tribal communities at Seva Trust Foundation was eye-opening. It wasn’t just about raising awareness but also about learning to listen deeply and tell authentic stories. What is the best way to ensure these voices are heard and their stories resonate with broader audiences?</p>
-							  </div>
-							
-							  Yasham Foundation -->
-							  <!-- <div>
-								<h3>🏫 **Yasham Foundation** | Tutor & Workshop Organizer</h3>
-								<p class="fade-in">Tutoring at Yasham Foundation has been a reminder of the transformative power of education. Each workshop left me wondering: How can I better tailor my teaching methods to not just educate but also instill self-confidence and motivation in these young minds?</p>
-							  </div> -->
-							
-							  <!-- Call to Action/Reflection -->
-							  <!-- <p class="fade-in">
-								🔍 **Reflection**<br>
-								Every experience has challenged me to think beyond myself and approach technology and problem-solving with empathy and purpose. These questions fuel my curiosity and keep me striving for ways to make a more meaningful impact. I’m excited to continue building connections, giving back, and discovering new ways to contribute and grow.
-							  </p>
-							  </article>	 -->
-
-							<!-- Contact -->
-							  <article id="contact">
-								<h2 class="major">Contact</h2>
-								<form method="post" action="mailto:utkarsh6@illinois.edu">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<ul class="icons">
-									<li><a href="https://linkedin.com/in/utkarshsingh34" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://github.com/utkarshsingh34" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-									<!-- <li><a href="https://x.com/utkarshsingh_34" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
-								</ul>
-							</article>
-
-
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
-
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
-
-								<section>
-									<h3 class="major">Lists</h3>
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</section>
-
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
-
-							</article>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-
-					</footer>
-
-			</div>
-
-			<div id="bg">
-				<div id="particles-js"></div>
-			</div>
-
-			
-		<!-- Scripts -->
-		<script type="text/javascript" src="assets/js/particles.min.js"></script>
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-		<script type="text/javascript">
-			particlesJS.load('particles-js', 'assets/config/particles-js.json', function() {});
-		</script>
-		
-
-
-	</body>
+<body>
+    <canvas id="starfield"></canvas>
+    <div class="triangle-pattern" id="trianglePattern"></div>
+    
+    <header>
+        <a href="index.html" class="logo">Utkarsh <span class="logo-accent">Singh</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Hey there! I'm <span>Utkarsh</span></h1>
+                <p class="subtitle">Computer Science and Statistics @ UIUC</p>
+                <!-- <p class="description">I enjoy building innovative solutions that make people's lives better.</p> -->
+                
+                <div class="bio">
+                    <p>Interested in web development, machine learning, and startups. I have a broader interest in mathematics and algorithms that underpins my technical work.</p>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="about.html" class="btn primary-btn">
+                        <i class="fas fa-user"></i> About Me
+                    </a>
+                    <a href="resume.html" class="btn secondary-btn">
+                        <i class="fas fa-file-alt"></i> Resume
+                    </a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/UtkarshSingh34/" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/utkarsh-singh34" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:utkarsh6@illinois.edu" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="Headshot.jpeg" alt="Utkarsh Singh" class="profile-img">
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Starfield animation
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        
+        // Star properties
+        let stars = [];
+        const starCount = 100;
+        
+        // Create stars
+        function createStars() {
+            stars = [];
+            for (let i = 0; i < starCount; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.05
+                });
+            }
+        }
+        
+        // Draw stars
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+                ctx.fill();
+                
+                // Move star
+                star.y += star.speed;
+                
+                // Reset star position if it goes off screen
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+            });
+            
+            requestAnimationFrame(drawStars);
+        }
+        
+        // Initialize stars
+        createStars();
+        drawStars();
+        
+        // Create triangles pattern
+        const trianglePattern = document.getElementById('trianglePattern');
+        const triangleCount = 30;
+        
+        function createTriangles() {
+            for (let i = 0; i < triangleCount; i++) {
+                const triangle = document.createElement('div');
+                triangle.classList.add('triangle');
+                
+                // Random position within the viewport
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                // Random rotation, opacity and delay
+                const rotation = Math.random() * 360;
+                const opacity = 0.1 + Math.random() * 0.2;
+                const delay = Math.random() * 3;
+                
+                triangle.style.cssText = `
+                    left: ${posX}%;
+                    top: ${posY}%;
+                    --rotation: ${rotation}deg;
+                    --opacity: ${opacity};
+                    --delay: ${delay}s;
+                `;
+                
+                trianglePattern.appendChild(triangle);
+            }
+        }
+        
+        createTriangles();
+    </script>
+</body>
 </html>
